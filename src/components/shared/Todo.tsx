@@ -1,8 +1,10 @@
 import { todoType } from "../../../types/todoType"
 import ChangeTodo from "./ChangeTodo"
+import DeleteTodo from "./DeleteTodo"
+import EditTodo from "./EditTodo"
 
 
-const Todo = ({todo}: todoType) => {
+const Todo = ({todo}: {todo:todoType}) => {
     const todoStyle = {
         textDecoration: todo.isCompleted? "line-through":"",
         opacity: todo.isCompleted? 0.5:1
@@ -15,6 +17,12 @@ const Todo = ({todo}: todoType) => {
         todo={todo}
         />
         <span className="text-center font-bold uppercase">{todo.title}</span>
+        <div className="flex items-center gap-5">
+            <EditTodo
+            todo={todo}
+            />
+            <DeleteTodo todo={todo}/>
+        </div>
     </div>
   )
 }

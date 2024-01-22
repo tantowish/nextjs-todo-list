@@ -49,3 +49,30 @@ export async function changeStats(formData: FormData){
 
     return updatedStatus
 }
+
+export async function edit(formData:FormData) {
+    const input = formData.get("newTitle") as string
+    const inputId = formData.get("inputId") as string
+
+    await prisma.todo.update({
+        where:{
+            id: inputId
+        },
+        data:{
+            title: input
+        }
+    })
+
+    revalidatePath('/')
+}
+
+export async function deleteTodo(formData:FormData) {
+    const inputId = formData.get("inputId") as string
+
+    await prisma.todo.delete({
+        where:{
+            id: inputId
+        }
+    })
+    revalidatePath('/')
+}

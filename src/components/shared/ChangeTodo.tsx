@@ -3,6 +3,7 @@ import Button from "../ui/Button"
 import Form from "../ui/Form"
 import Input from "../ui/Input"
 import { changeStats } from "@/app/actions/todoActions"
+import { todoType } from "../../../types/todoType"
 
 interface todo {
     title: string,
@@ -10,7 +11,7 @@ interface todo {
     isComplete: boolean
 }
 
-const ChangeTodo = ({todo}) => {
+const ChangeTodo = ({todo}: {todo:todoType}) => {
   return (
     <Form actions={changeStats}>
         <Input
