@@ -14,7 +14,12 @@ const EditTodo = ({todo}:{todo:todoType}) => {
     const handleEdit = ()=>{
         if(!todo.isCompleted){
             setEditTodo(!editTodo)
+            console.log(editTodo)
+            if(editTodo){
+                setEditTodo(!editTodo)
+            }
         }
+
     }
 
     const handleSubmit = ()=>{
